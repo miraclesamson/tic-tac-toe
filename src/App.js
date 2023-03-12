@@ -21,7 +21,7 @@ export default function Game() {
     if (move > 0) {
       description = "Go to move #" + move;
     } else {
-      description = "Go to game start";
+      description = "start the Game";
     }
     return (
       <li key={move}>
@@ -31,13 +31,20 @@ export default function Game() {
   });
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+    <>
+      <div className="game">
+        <div className="game-board">
+          <Board
+            xIsNext={xIsNext}
+            squares={currentSquares}
+            onPlay={handlePlay}
+          />
+        </div>
+        <div className="game-info">
+          <ol>{moves}</ol>
+        </div>
       </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
-      </div>
-    </div>
+      <p className="copyright">Designed by Frontend_Samson</p>
+    </>
   );
 }

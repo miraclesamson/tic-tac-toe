@@ -15,12 +15,11 @@ export default function Board({ xIsNext, squares, onPlay }) {
   }
 
   const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
+  let status = winner
+    ? `winner: ${winner}`
+    : squares.every((square) => square !== null)
+    ? "Draw"
+    : `Next player: ${xIsNext ? "X" : "O"}`;
 
   return (
     <div className="container">
