@@ -18,7 +18,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
   let status = winner
     ? `winner: ${winner}`
     : squares.every((square) => square !== null)
-    ? "Draw"
+    ? "the game is a Tie."
     : `Next player: ${xIsNext ? "X" : "O"}`;
 
   return (
